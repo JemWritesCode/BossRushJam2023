@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6632148312851235348}
   - component: {fileID: 6632148312847811124}
   - component: {fileID: 6632148312848941300}
+  - component: {fileID: 1040522993}
   m_Layer: 0
   m_Name: GearPickup
   m_TagString: Untagged
@@ -25,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6632148312851209780}
-  m_LocalRotation: {x: 0.0000018099951, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.899, y: 0.14999998, z: 1.265}
-  m_LocalScale: {x: 0.12469314, y: 0.12469314, z: 0.12469314}
+  m_LocalScale: {x: 0.046440713, y: 0.046440713, z: 0.046440713}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,3 +85,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1040522993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632148312851209780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc34b158f438144086b74d007271ea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xSpin: 0
+  ySpin: 0
+  zSpin: 80
