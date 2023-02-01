@@ -22,6 +22,7 @@ Assets/ImportedAssets.meta
 
 # Ignore plugins from Asset store
 /[Aa]ssets/[Pp]lugins/Demigiant*
+/[Aa]ssets/[Pp]lugins/CW*
 
 # Ignore TextMeshPro initial assets
 /[Aa]ssets/[Tt]ext[Mm]esh*[Pp]ro*
