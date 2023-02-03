@@ -447,7 +447,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1046287717}
-  - component: {fileID: 1046287718}
   m_Layer: 5
   m_Name: MenuRoot
   m_TagString: Untagged
@@ -476,23 +475,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1046287718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046287716}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 752d00d659f74154f80b93832b0ef7aa, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!1 &1656368301
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +607,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825401545}
   - component: {fileID: 1825401546}
+  - component: {fileID: 1825401547}
   m_Layer: 5
   m_Name: MenuController
   m_TagString: Untagged
@@ -665,4 +648,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MenuRoot>k__BackingField: {fileID: 1046287716}
-  <MenuCameraEffect>k__BackingField: {fileID: 1046287718}
+  <MenuCameraEffects>k__BackingField: {fileID: 1825401547}
+--- !u!114 &1825401547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825401544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 752d00d659f74154f80b93832b0ef7aa, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0

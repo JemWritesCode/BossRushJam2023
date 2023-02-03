@@ -1,3 +1,5 @@
+using DG.Tweening;
+
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -6,12 +8,19 @@ public class MenuController : MonoBehaviour {
   public GameObject MenuRoot { get; private set; }
 
   [field: SerializeField]
-  public PostProcessVolume MenuCameraEffect { get; private set; }
+  public PostProcessVolume MenuCameraEffects { get; private set; }
 
   GameObject _cameraController;
+  ColorGrading _colorGradingEffect;
+  DepthOfField _depthOfFieldEffect;
 
-  void Awake() {
+  StarterAssets.StarterAssetsInputs _inputController;
+
+  void Start() {
     _cameraController = GameObject.FindGameObjectWithTag("CameraController");
+    _colorGradingEffect = MenuCameraEffects.profile.GetSetting<ColorGrading>();
+    _depthOfFieldEffect = MenuCameraEffects.profile.GetSetting<DepthOfField>();
+    _inputController = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
 
     ToggleMenu(toggleOn: false);
   }
@@ -24,10 +33,20 @@ public class MenuController : MonoBehaviour {
 
   public void ToggleMenu(bool toggleOn) {
     MenuRoot.SetActive(toggleOn);
-    MenuCameraEffect.enabled = toggleOn;
     _cameraController.SetActive(!toggleOn);
 
-    Cursor.lockState = toggleOn ? CursorLockMode.None : CursorLockMode.Locked;
-    Time.timeScale = toggleOn ? 0f : 1f;
+    _inputController.cursorInputForLook = toggleOn ? false : true;
+    _inputController.cursorLocked = toggleOn ? false : true;
+
+    DOTween
+        .To(() =>
+              _colorGradingEffect.saturation.value,
+              x => _colorGradingEffect.saturation.value = x,
+              toggleOn ? -100f : 0f,
+              2f)
+        .SetUpdate(true)
+        .OnStart(() => _depthOfFieldEffect.enabled.value = toggleOn);
+
+    DOTween.To(() => Time.timeScale, x => Time.timeScale = x, toggleOn ? 0f : 1f, 2f).SetUpdate(true);
   }
 }
