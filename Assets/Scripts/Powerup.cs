@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    public ParticleSystem pickupEffect;
+    public GameObject pickupEffect;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,12 +17,13 @@ public class Powerup : MonoBehaviour
 
     private void Pickup(Collider player)
     {
-        //Instantiate(pickupEffect, transform.position, transform.rotation);
+        Instantiate(pickupEffect, transform.position, transform.rotation);
 
-        pickupEffect.Play();
+       //testing pickupEffect.Play();
 
         // player effect
 
+        pickupEffect.SetActive(true);
         Destroy(gameObject);
     }
 }
