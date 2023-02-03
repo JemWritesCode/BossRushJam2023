@@ -11,16 +11,17 @@ public class MenuController : MonoBehaviour {
   public PostProcessVolume MenuCameraEffects { get; private set; }
 
   GameObject _cameraController;
+  StarterAssets.StarterAssetsInputs _inputController;
+
   ColorGrading _colorGradingEffect;
   DepthOfField _depthOfFieldEffect;
 
-  StarterAssets.StarterAssetsInputs _inputController;
-
   void Start() {
     _cameraController = GameObject.FindGameObjectWithTag("CameraController");
+    _inputController = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
+
     _colorGradingEffect = MenuCameraEffects.profile.GetSetting<ColorGrading>();
     _depthOfFieldEffect = MenuCameraEffects.profile.GetSetting<DepthOfField>();
-    _inputController = FindObjectOfType<StarterAssets.StarterAssetsInputs>();
 
     ToggleMenu(toggleOn: false);
   }
@@ -35,8 +36,8 @@ public class MenuController : MonoBehaviour {
     MenuRoot.SetActive(toggleOn);
     _cameraController.SetActive(!toggleOn);
 
-    _inputController.cursorInputForLook = toggleOn ? false : true;
-    _inputController.cursorLocked = toggleOn ? false : true;
+    _inputController.cursorInputForLook = !toggleOn;
+    _inputController.cursorLocked = !toggleOn;
 
     DOTween
         .To(() =>
