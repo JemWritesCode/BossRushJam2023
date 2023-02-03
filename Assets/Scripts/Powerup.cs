@@ -17,7 +17,8 @@ public class Powerup : MonoBehaviour
 
     private void Pickup(Collider player)
     {
-        Instantiate(pickupEffect, transform.position, transform.rotation);
+        GameObject pickupFX = Instantiate(pickupEffect, transform.position, transform.rotation);
+        Destroy(pickupFX, 1f);
 
        //testing pickupEffect.Play();
 
