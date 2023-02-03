@@ -7,8 +7,8 @@
 /[Uu]ser[Ss]ettings/
 
 # So I don't end up redistributing assets on accident
-Assets/ImportedAssets/
-Assets/ImportedAssets.meta
+##Assets/ImportedAssets/
+##Assets/ImportedAssets.meta
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data

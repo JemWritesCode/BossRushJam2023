@@ -412,6 +412,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3f27a5aa7f5b86b41870fa4d6228e254, type: 3}
   m_PrefabInstance: {fileID: 1627379071}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &1476986975 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6543750719984642813, guid: 935c8184247092949b78b0d0f3a34b7c, type: 3}
+  m_PrefabInstance: {fileID: 8048397988028459736}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1627379071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -495,6 +500,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13700002, guid: 3f27a5aa7f5b86b41870fa4d6228e254, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b485149f11490af4695875c55da4d31b, type: 2}
     m_RemovedComponents:
     - {fileID: 9500000, guid: 3f27a5aa7f5b86b41870fa4d6228e254, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3f27a5aa7f5b86b41870fa4d6228e254, type: 3}
@@ -1215,6 +1224,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1394685991204502126, guid: 3f7d3c452151f554dac851e7c78e4413, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 1329845292236604, guid: e89235767e24c034b8010130bc8c7d19, type: 3}
     - target: {fileID: 6871934883937057040, guid: 3f7d3c452151f554dac851e7c78e4413, type: 3}
       propertyPath: m_Name
       value: PipePickup
@@ -1304,10 +1317,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6764505397412175361, guid: 09ba6553f567c754c9c326b9151d56be, type: 3}
-      propertyPath: space
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 7746009174563260421, guid: 09ba6553f567c754c9c326b9151d56be, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 1329845292236604, guid: e89235767e24c034b8010130bc8c7d19, type: 3}
     - target: {fileID: 7989805250240714329, guid: 09ba6553f567c754c9c326b9151d56be, type: 3}
       propertyPath: m_Name
       value: BoltPickup
@@ -3397,10 +3410,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1040522993, guid: 935c8184247092949b78b0d0f3a34b7c, type: 3}
-      propertyPath: space
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6632148312851209780, guid: 935c8184247092949b78b0d0f3a34b7c, type: 3}
       propertyPath: m_Name
       value: GearPickup
@@ -3449,6 +3458,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8134232941697749489, guid: 935c8184247092949b78b0d0f3a34b7c, type: 3}
+      propertyPath: pickupEffect
+      value: 
+      objectReference: {fileID: 1476986975}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 935c8184247092949b78b0d0f3a34b7c, type: 3}
 --- !u!1 &8063849514575974576
