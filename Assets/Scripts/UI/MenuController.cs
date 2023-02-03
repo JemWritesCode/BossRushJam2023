@@ -27,7 +27,7 @@ public class MenuController : MonoBehaviour {
   }
 
   void Update() {
-    if (Input.GetKeyDown(KeyCode.Escape)) {
+    if (Input.GetKeyDown(KeyCode.Tab)) {
       ToggleMenu(!MenuRoot.activeSelf);
     }
   }
@@ -37,17 +37,19 @@ public class MenuController : MonoBehaviour {
     _cameraController.SetActive(!toggleOn);
 
     _inputController.cursorInputForLook = !toggleOn;
-    _inputController.cursorLocked = !toggleOn;
+    _inputController.look = Vector2.zero;
+
+    Cursor.lockState = toggleOn ? CursorLockMode.Confined : CursorLockMode.Locked;
+
+    Time.timeScale = toggleOn ? 0f : 1f;
+    _depthOfFieldEffect.enabled.value = toggleOn;
 
     DOTween
         .To(() =>
               _colorGradingEffect.saturation.value,
               x => _colorGradingEffect.saturation.value = x,
               toggleOn ? -100f : 0f,
-              2f)
-        .SetUpdate(true)
-        .OnStart(() => _depthOfFieldEffect.enabled.value = toggleOn);
-
-    DOTween.To(() => Time.timeScale, x => Time.timeScale = x, toggleOn ? 0f : 1f, 2f).SetUpdate(true);
+              1f)
+        .SetUpdate(true);
   }
 }
