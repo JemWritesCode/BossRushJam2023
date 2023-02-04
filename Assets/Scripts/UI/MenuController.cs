@@ -2,12 +2,13 @@ using DG.Tweening;
 
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
-  [field: SerializeField]
+  [field: SerializeField, Header("UI")]
   public GameObject MenuRoot { get; private set; }
 
-  [field: SerializeField]
+  [field: SerializeField, Header("Effects")]
   public PostProcessVolume MenuCameraEffects { get; private set; }
 
   GameObject _cameraController;
@@ -51,5 +52,15 @@ public class MenuController : MonoBehaviour {
               toggleOn ? -100f : 0f,
               1f)
         .SetUpdate(true);
+  }
+
+  public void OnQuitButton() {
+  #if UNITY_EDITOR
+    // Application.Quit() does not work in the editor so
+    // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+    UnityEditor.EditorApplication.isPlaying = false;
+  #else
+    Application.Quit();
+  #endif
   }
 }
