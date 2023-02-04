@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupEffect: {fileID: 4535363454447548153, guid: 2eb95578f35d42a4d83de803efcd835f, type: 3}
+  pickupType: gear
