@@ -8,7 +8,15 @@ public class Inventory : MonoBehaviour
     public event EventHandler<AddToInventoryEventArgs> OnAddToInventory;
 
     public string[] inventory = { "", "", "" };
+    public string weapon = "";
+
     public Dictionary<string, string> weaponRecipes;
+
+    public void Start()
+    {
+        weaponRecipes = new Dictionary<string, string>();
+        weaponRecipes.Add("boltpipepipe", "shotgun");
+    }
 
     public void AddToInventory(string item)
     {
@@ -29,6 +37,12 @@ public class Inventory : MonoBehaviour
 
     private void MakeInvention()
     {
+        string result;
+        Array.Sort(inventory);
+        weaponRecipes.TryGetValue(inventory[0] + inventory[1] + inventory[2], out result);
+        Debug.Log(result);
+        
+
         // delay or animation to show it's making invention (probably like 2 seconds)
         // depending on what the items are make a certain weapon
         //ideally this list of what items make which weapons is JSON? 
