@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 6632148312851209780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.899, y: 0.14999998, z: 1.265}
-  m_LocalScale: {x: 0.046440713, y: 0.046440713, z: 0.046440713}
+  m_LocalScale: {x: 0.046440713, y: 0.04644071, z: 0.04644071}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -127,5 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c239909307d2c584799d4e8fd90db359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 4535363454447548153, guid: 2eb95578f35d42a4d83de803efcd835f, type: 3}
+  pickupEffect: {fileID: 8154582754850423124, guid: afb03ee48a0832c4ca7e5017e9cae0a1, type: 3}
   pickupType: gear
+  inventoryManager: {fileID: 0}

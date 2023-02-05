@@ -75,8 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c239909307d2c584799d4e8fd90db359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupEffect: {fileID: 0}
+  pickupEffect: {fileID: 8154582754850423124, guid: afb03ee48a0832c4ca7e5017e9cae0a1, type: 3}
   pickupType: pipe
+  inventoryManager: {fileID: 0}
 --- !u!1 &8083433663220027362
 GameObject:
   m_ObjectHideFlags: 0
