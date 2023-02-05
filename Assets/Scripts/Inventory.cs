@@ -15,7 +15,15 @@ public class Inventory : MonoBehaviour
     public void Start()
     {
         weaponRecipes = new Dictionary<string, string>();
+        //weaponRecipes.Add("boltboltbolt", "");
+        //weaponRecipes.Add("boltboltgear", "");
+        //weaponRecipes.Add("boltboltpipe", "");
+        //weaponRecipes.Add("geargeargear", "");
+        //weaponRecipes.Add("boltgeargear", "");
+        weaponRecipes.Add("geargearpipe", "bomb");
+        //weaponRecipes.Add("pipepipepipe", "");
         weaponRecipes.Add("boltpipepipe", "shotgun");
+        //weaponRecipes.Add("gearpipepipe", "");
     }
 
     public void AddToInventory(string item)
@@ -37,21 +45,21 @@ public class Inventory : MonoBehaviour
 
     private void MakeInvention()
     {
+        //JEMTODO delay or animation to show it's making invention (probably like 2 seconds)
         string result;
         Array.Sort(inventory);
-        weaponRecipes.TryGetValue(inventory[0] + inventory[1] + inventory[2], out result);
-        Debug.Log(result);
-        
-
-        // delay or animation to show it's making invention (probably like 2 seconds)
-        // depending on what the items are make a certain weapon
-        //ideally this list of what items make which weapons is JSON? 
-        // or maybe something that can be easily edited it in the Unity Editor
-        //dictionary? [key = geargeargear, value = weaponMade]
-
-
-        // whatever I get just sort it before I compare it to the recipes (also sorted? I can probably just sort this once before on the data set itself)
-        // then I'll always get the same comparison
+        if(weaponRecipes.TryGetValue(inventory[0] + inventory[1] + inventory[2], out result))
+        {
+            Debug.Log("You crafted a " + result + "!");
+            //JEMTODO Set Player Weapon
+        }
+        else
+        {
+            Debug.Log("Failed Invention!");
+            //JEMTODO Tell Player Failed Invention 
+            // Default "FAILED" in the logo box
+            // Timer should be super fast for this so they can collect items again
+        }
     }
 }
 
