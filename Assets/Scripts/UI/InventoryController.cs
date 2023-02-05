@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour {
   [field: SerializeField]
-  public GenericDictionary<string, GameObject> ItemNameToPrefabMapping { get; private set; }
+  public GenericDictionary<string, GameObject> ItemNameToPrefab { get; private set; }
 
   Inventory _inventoryManager;
 
@@ -11,7 +11,9 @@ public class InventoryController : MonoBehaviour {
     _inventoryManager.OnAddToInventory += OnAddToInventoryEventHandler;
   }
 
-  void OnAddToInventoryEventHandler(object sender, AddToInventoryEventArgs eventArgs) {
+  void OnAddToInventoryEventHandler(object sender, AddToInventoryEventArgs args) {
+    if (ItemNameToPrefab.TryGetValue(args.ItemName, out GameObject prefab)) {
 
+    }
   }
 }
