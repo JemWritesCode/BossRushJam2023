@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public event EventHandler<AddToInventoryEventArgs> OnAddToInventory;
+
     public string[] inventory = { "", "", "" };
 
     public void AddToInventory(string item)
@@ -13,8 +15,14 @@ public class Inventory : MonoBehaviour
             if(string.IsNullOrEmpty(inventory[i]))
             {
                 inventory[i] = item;
+                OnAddToInventory?.Invoke(this, new() { InventorySlot = i, ItemName = item });
                 return;
             }
         }
     }
+}
+
+public class AddToInventoryEventArgs : EventArgs {
+  public int InventorySlot { get; set; }
+  public string ItemName { get; set; }
 }
