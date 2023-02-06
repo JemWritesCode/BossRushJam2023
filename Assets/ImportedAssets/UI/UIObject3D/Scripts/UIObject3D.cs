@@ -848,7 +848,6 @@ namespace UI.ThreeDimensional
             {
                 if (ObjectPrefab == null)
                 {
-                    if (Application.isPlaying) Debug.LogWarning("[UIObject3D] No prefab set.");
                     return;
                 }
 
