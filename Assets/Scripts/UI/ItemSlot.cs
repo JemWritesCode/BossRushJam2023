@@ -7,14 +7,16 @@ public class ItemSlot : MonoBehaviour {
   public UIObject3D PrefabRender { get; private set; }
 
   [field: SerializeField]
-  public RotateUIObject3D PrefabRotate { get; private set; }
+  public UIObject3DImage PrefabRenderImage { get; private set; }
 
   public void SetSlotPrefab(GameObject sourcePrefab) {
+    PrefabRenderImage.color = PrefabRenderImage.color.SetAlpha(1f);
     PrefabRender.ObjectPrefab = sourcePrefab.transform;
     PrefabRender.TargetRotation = sourcePrefab.transform.rotation.eulerAngles;
   }
 
   public void ClearSlotPrefab() {
+    PrefabRenderImage.color = PrefabRenderImage.color.SetAlpha(0f);
     PrefabRender.ObjectPrefab = default;
   }
 }
