@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class InventoryController : MonoBehaviour {
+public class InventoryPanelController : MonoBehaviour {
   [field: SerializeField]
   public GenericDictionary<string, GameObject> ItemNameToPrefab { get; private set; }
 
@@ -14,13 +14,19 @@ public class InventoryController : MonoBehaviour {
   void Start() {
     _inventoryManager = FindObjectOfType<Inventory>();
     _inventoryManager.OnAddToInventory += OnAddToInventoryEventHandler;
+    _inventoryManager.OnMakeInvention += OnMakeInventionEventHandler;
   }
 
   void OnAddToInventoryEventHandler(object sender, AddToInventoryEventArgs args) {
-    Debug.Log($"Added item: {args.ItemName}, slot: {args.InventorySlot}");
     if (args.InventorySlot < ItemSlots.Count
         && ItemNameToPrefab.TryGetValue(args.ItemName, out GameObject sourcePrefab)) {
       ItemSlots[args.InventorySlot].SetSlotPrefab(sourcePrefab);
+    }
+  }
+
+  void OnMakeInventionEventHandler(object sender, MakeInventionEventArgs args) {
+    foreach (ItemSlot itemSlot in ItemSlots) {
+      itemSlot.ClearSlotPrefab();
     }
   }
 }

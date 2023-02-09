@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     public event EventHandler<AddToInventoryEventArgs> OnAddToInventory;
+    public event EventHandler<MakeInventionEventArgs> OnMakeInvention;
 
     public string[] inventory = { "", "", "" };
     public string weapon = "";
@@ -32,12 +33,12 @@ public class Inventory : MonoBehaviour
         {
             if (string.IsNullOrEmpty(inventory[i]))
             {
+                OnAddToInventory?.Invoke(this, new() { InventorySlot = i, ItemName = item });
                 inventory[i] = item;
                 if (i == 2)
                 {
                     MakeInvention();
                 }
-                OnAddToInventory?.Invoke(this, new() { InventorySlot = i, ItemName = item });
                 return;
             }
         }
@@ -51,11 +52,13 @@ public class Inventory : MonoBehaviour
         if(weaponRecipes.TryGetValue(inventory[0] + inventory[1] + inventory[2], out result))
         {
             Debug.Log("You crafted a " + result + "!");
+            OnMakeInvention?.Invoke(this, new() { InventionSuccess = true, InventionName = result });
             //JEMTODO Set Player Weapon
         }
         else
         {
             Debug.Log("Failed Invention!");
+            OnMakeInvention?.Invoke(this, new() { InventionSuccess = false, InventionName = string.Empty });
             //JEMTODO Tell Player Failed Invention 
             // Default "FAILED" in the logo box
             // Timer should be super fast for this so they can collect items again
@@ -63,8 +66,12 @@ public class Inventory : MonoBehaviour
     }
 }
 
-public class AddToInventoryEventArgs : EventArgs
-    {
-        public int InventorySlot { get; set; }
-        public string ItemName { get; set; }
-    }
+public class AddToInventoryEventArgs : EventArgs {
+  public int InventorySlot { get; set; }
+  public string ItemName { get; set; }
+}
+
+public class MakeInventionEventArgs : EventArgs {
+  public bool InventionSuccess { get; set; }
+  public string InventionName { get; set; }
+}
