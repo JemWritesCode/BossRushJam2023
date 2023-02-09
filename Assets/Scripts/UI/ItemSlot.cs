@@ -1,3 +1,5 @@
+using DG.Tweening;
+
 using UI.ThreeDimensional;
 
 using UnityEngine;
@@ -29,7 +31,7 @@ public class ItemSlot : MonoBehaviour {
     PrefabRender.ObjectPrefab = sourcePrefab.transform;
     PrefabRender.TargetRotation = sourcePrefab.transform.rotation.eulerAngles;
 
-    ItemSlotFrame.color = FrameHasItemColor;
+    ItemSlotFrame.DOColor(FrameHasItemColor, 1f);
   }
 
   public void ClearSlotPrefab() {
