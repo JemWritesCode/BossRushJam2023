@@ -18,10 +18,10 @@ public class Inventory : MonoBehaviour
         weaponRecipes = new Dictionary<string, string>();
         //weaponRecipes.Add("boltboltbolt", "");
         //weaponRecipes.Add("boltboltgear", "");
-        //weaponRecipes.Add("boltboltpipe", "");
+        weaponRecipes.Add("boltboltpipe", "sword");
         //weaponRecipes.Add("geargeargear", "");
         //weaponRecipes.Add("boltgeargear", "");
-        weaponRecipes.Add("geargearpipe", "bomb");
+        //weaponRecipes.Add("geargearpipe", "bomb");
         //weaponRecipes.Add("pipepipepipe", "");
         weaponRecipes.Add("boltpipepipe", "shotgun");
         //weaponRecipes.Add("gearpipepipe", "");
