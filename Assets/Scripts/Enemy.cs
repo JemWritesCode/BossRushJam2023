@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     private void OnParticleCollision(GameObject other)
     {
         ProcessHit();
-        Debug.Log("Hit!");
     }
 
     private void KillEnemy()

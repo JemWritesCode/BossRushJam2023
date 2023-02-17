@@ -4659,7 +4659,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -11397,6 +11397,8 @@ GameObject:
   - component: {fileID: 7018120648943960376}
   - component: {fileID: 3543048675797153716}
   - component: {fileID: 974238578879523780}
+  - component: {fileID: 7018120648943960377}
+  - component: {fileID: 7018120648943960378}
   m_Layer: 8
   m_Name: PlayerArmature
   m_TagString: Player
@@ -13252,6 +13254,31 @@ MonoBehaviour:
     m_Bits: 0
   canPush: 0
   strength: 1.1
+--- !u!114 &7018120648943960377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974238578879523784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db2f284b924a814cb0c8a397b3790ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7018120648943960378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974238578879523784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6676b5214c706f64e940b23556392b39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blasterParticles: {fileID: 848672267}
 --- !u!4 &7082370649750719114
 Transform:
   m_ObjectHideFlags: 0
