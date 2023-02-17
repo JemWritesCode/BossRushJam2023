@@ -26,13 +26,13 @@ public class Enemy : MonoBehaviour
     {
         GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
         Destroy(gameObject);
-        Destroy(fx, 3);
+        Destroy(fx, 2);
     }
 
     private void HitEnemy()
     {
         GameObject vfx = Instantiate(hitVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parentGameObject.transform;
+        vfx.transform.parent = gameObject.transform;
         Destroy(vfx, 3); // destroy the vfx so it doesn't clutter the hierarchy.
                          // I might need to change this to an object pool
     }
