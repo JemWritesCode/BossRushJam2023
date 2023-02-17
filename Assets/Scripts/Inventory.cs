@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour
         //weaponRecipes.Add("boltgeargear", "");
         //weaponRecipes.Add("geargearpipe", "bomb");
         //weaponRecipes.Add("pipepipepipe", "");
-        weaponRecipes.Add("boltpipepipe", "shotgun");
+        weaponRecipes.Add("boltpipepipe", "pistol");
         //weaponRecipes.Add("gearpipepipe", "");
     }
 
