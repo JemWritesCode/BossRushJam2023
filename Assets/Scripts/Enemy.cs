@@ -4,15 +4,50 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject deathFX;
+    [SerializeField] GameObject hitVFX;
+    [SerializeField] int hitPoints = 3;
+
+    GameObject parentGameObject;
+
+    private void Start()
     {
-        
+        //parentGameObject = GameObject.FindWithTag("SpawnAtRuntime");
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnParticleCollision(GameObject other)
     {
-        
+        ProcessHit();
+        Debug.Log("Hit!");
+    }
+
+    private void KillEnemy()
+    {
+        GameObject fx = Instantiate(deathFX, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        Destroy(fx, 3);
+    }
+
+    private void HitEnemy()
+    {
+        GameObject vfx = Instantiate(hitVFX, transform.position, Quaternion.identity);
+        vfx.transform.parent = parentGameObject.transform;
+        Destroy(vfx, 3); // destroy the vfx so it doesn't clutter the hierarchy.
+                         // I might need to change this to an object pool
+    }
+
+
+    private void ProcessHit()
+    {
+        if (hitPoints == 0)
+        {
+            KillEnemy();
+        }
+        else
+        {
+            HitEnemy();
+            hitPoints--;
+        }
     }
 }
