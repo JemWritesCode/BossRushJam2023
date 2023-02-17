@@ -14,7 +14,7 @@ public class BossHudController : MonoBehaviour {
     Enemy.OnProcessHit += EnemyOnProcessHitHandler;
   }
 
-  private void OnDestroy() {
+  void OnDestroy() {
     Enemy.OnProcessHit -= EnemyOnProcessHitHandler;
   }
 
@@ -23,6 +23,6 @@ public class BossHudController : MonoBehaviour {
 
     HealthBarSlider.DOKill();
     HealthBarSlider.DOValue(hitPointsPercent, 0.25f).SetLink(gameObject);
-    HealthBarText.text = $"{hitPointsPercent:P0}";
+    HealthBarText.DOText($"{hitPointsPercent:P0}", 0.25f).SetLink(gameObject);
   }
 }
