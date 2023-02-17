@@ -20,7 +20,14 @@ public class PlayerHealth : MonoBehaviour {
 
     OnPlayerHit?.Invoke(
         this, new() { HealthPointsMax = _playerHealthPointsMax, HealthPointsCurrent = PlayerHealthPoints });
+
+    if(PlayerHealthPoints == 0) { KillPlayer(); }
   }
+
+    private void KillPlayer()
+    {
+        
+    }
 }
 
 public class PlayerHitEventArgs : EventArgs {
