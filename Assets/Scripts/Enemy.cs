@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public static event EventHandler<EnemyProcessHitEventArgs> OnProcessHit;
+
     [SerializeField] GameObject deathFX;
     [SerializeField] GameObject hitVFX;
     [SerializeField] int hitPoints = 3;
 
     GameObject parentGameObject;
+    int hitPointsMax;
 
     private void Start()
     {
         //parentGameObject = GameObject.FindWithTag("SpawnAtRuntime");
+        hitPointsMax = hitPoints;
     }
 
 
@@ -48,5 +52,14 @@ public class Enemy : MonoBehaviour
             HitEnemy();
             hitPoints--;
         }
+
+        OnProcessHit?.Invoke(
+            this, new() { EnemyHit = this, HitPointsCurrent = hitPoints, HitPointsMax = hitPointsMax });
     }
+}
+
+public class EnemyProcessHitEventArgs : EventArgs {
+  public Enemy EnemyHit { get; set; }
+  public float HitPointsCurrent { get; set; }
+  public float HitPointsMax { get; set; }
 }
