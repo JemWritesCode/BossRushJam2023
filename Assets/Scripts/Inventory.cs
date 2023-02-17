@@ -62,6 +62,9 @@ public class Inventory : MonoBehaviour
             //JEMTODO Tell Player Failed Invention 
             // Default "FAILED" in the logo box
             // Timer should be super fast for this so they can collect items again
+            inventory[0] = string.Empty;
+            inventory[1] = string.Empty;
+            inventory[2] = string.Empty;
         }
     }
 }

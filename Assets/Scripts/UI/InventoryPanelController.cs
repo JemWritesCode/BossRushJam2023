@@ -41,6 +41,7 @@ public class InventoryPanelController : MonoBehaviour {
         sequence.Insert(i * 0.25f, itemSlot.transform.DOPunchScale(Vector3.one * 0.1f, 1.5f));
       } else {
         sequence.Insert(1f + (i * 0.25f), itemSlot.PrefabRenderImage.DOColor(Color.black, 1f));
+        sequence.InsertCallback(3f, () => itemSlot.ClearSlotPrefab());
       }
     }
   }

@@ -21,13 +21,16 @@ public class ItemSlot : MonoBehaviour {
   [field: SerializeField]
   public Color FrameHasItemColor { get; private set; } = Color.yellow;
 
+  Color _renderImageOriginalColor;
+
   void Awake() {
-    PrefabRenderImage.color = PrefabRenderImage.color.SetAlpha(0f);
+    _renderImageOriginalColor = PrefabRenderImage.color;
+    PrefabRenderImage.color = _renderImageOriginalColor.SetAlpha(0f);
     ItemSlotFrame.color = FrameEmptyColor;
   }
 
   public void SetSlotPrefab(GameObject sourcePrefab) {
-    PrefabRenderImage.color = PrefabRenderImage.color.SetAlpha(1f);
+    PrefabRenderImage.DOColor(_renderImageOriginalColor.SetAlpha(1f), 1f);
     PrefabRender.ObjectPrefab = sourcePrefab.transform;
     PrefabRender.TargetRotation = sourcePrefab.transform.rotation.eulerAngles;
 
@@ -35,9 +38,10 @@ public class ItemSlot : MonoBehaviour {
   }
 
   public void ClearSlotPrefab() {
-    PrefabRenderImage.color = PrefabRenderImage.color.SetAlpha(0f);
-    PrefabRender.ObjectPrefab = default;
-
-    ItemSlotFrame.color = FrameEmptyColor;
+    PrefabRenderImage
+        .DOColor(_renderImageOriginalColor.SetAlpha(0f), 1f)
+        .OnComplete(() => { PrefabRender.ObjectPrefab = default; });
+    
+    ItemSlotFrame.DOColor(FrameEmptyColor, 1f);
   }
 }
